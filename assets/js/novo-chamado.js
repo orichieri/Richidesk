@@ -12,25 +12,19 @@ form.addEventListener("submit", async (evento) => {
   const nome = document.getElementById("nome").value.trim();
   const setor = document.getElementById("setor").value.trim();
   const descricao = document.getElementById("descricao").value.trim();
-  const prioridade = document.getElementById("prioridade").value;
+  const prioridade = document.querySelector('input[name="prioridade"]:checked').value;
 
   btnEnviar.disabled = true;
   btnEnviar.textContent = "Enviando...";
   mensagemEl.className = "msg";
   mensagemEl.textContent = "";
 
-  const { data, error } = await supabaseClient
-    .from("chamados")
-    .insert([
-      {
-        nome_solicitante: nome,
-        setor: setor,
-        descricao: descricao,
-        prioridade: prioridade
-      }
-    ])
-    .select()
-    .single();
+  const { data: numeroProtocolo, error } = await supabaseClient.rpc("abrir_chamado", {
+    p_nome: nome,
+    p_setor: setor,
+    p_descricao: descricao,
+    p_prioridade: prioridade
+  });
 
   btnEnviar.disabled = false;
   btnEnviar.textContent = "Abrir chamado";
@@ -43,6 +37,6 @@ form.addEventListener("submit", async (evento) => {
   }
 
   mensagemEl.className = "msg sucesso";
-  mensagemEl.textContent = `Chamado #${data.numero_protocolo} aberto com sucesso! Anote esse número para acompanhamento.`;
+  mensagemEl.textContent = `Chamado #${numeroProtocolo} aberto com sucesso! Anote esse número para acompanhamento.`;
   form.reset();
 });

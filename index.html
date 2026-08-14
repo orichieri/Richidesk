@@ -9,15 +9,24 @@
 <body>
 
   <div class="topbar">
-    <h1>🛠️ Farmaderm Help Desk</h1>
-    <a href="admin/login.html">Área da TI</a>
+    <div class="topbar-brand">
+      <div class="logo-icone">🛠️</div>
+      <div>
+        <h1>Farmaderm Help Desk</h1>
+        <div class="subtitulo">Suporte técnico interno</div>
+      </div>
+    </div>
+    <a href="admin/login.html">Área da TI →</a>
   </div>
 
   <div class="container">
     <div class="card">
-      <h2>Abrir novo chamado</h2>
-      <p style="color: var(--cor-texto-suave); font-size: 0.9rem; margin-top: -8px;">
-        Preencha os dados abaixo para registrar sua solicitação junto à equipe de TI.
+      <div class="card-header">
+        <div class="icone-grande">📩</div>
+        <h2>Abrir novo chamado</h2>
+      </div>
+      <p class="subtexto">
+        Preencha os dados abaixo e nossa equipe de TI vai te atender o quanto antes.
       </p>
 
       <form id="form-chamado">
@@ -30,12 +39,30 @@
         <label for="descricao">Descreva o problema</label>
         <textarea id="descricao" required placeholder="Explique com detalhes o que está acontecendo..."></textarea>
 
-        <label for="prioridade">Nível de urgência</label>
-        <select id="prioridade" required>
-          <option value="critico">🔴 Crítico / Máquina parada</option>
-          <option value="normal" selected>🟡 Normal</option>
-          <option value="baixo">🟢 Baixa / Verificar posteriormente</option>
-        </select>
+        <label>Nível de urgência</label>
+        <div class="prioridade-opcoes">
+          <div class="prioridade-opcao critico">
+            <input type="radio" name="prioridade" id="p-critico" value="critico">
+            <label for="p-critico">
+              <span class="emoji">🔴</span>
+              Crítico<br>Máquina parada
+            </label>
+          </div>
+          <div class="prioridade-opcao normal">
+            <input type="radio" name="prioridade" id="p-normal" value="normal" checked>
+            <label for="p-normal">
+              <span class="emoji">🟡</span>
+              Normal
+            </label>
+          </div>
+          <div class="prioridade-opcao baixo">
+            <input type="radio" name="prioridade" id="p-baixo" value="baixo">
+            <label for="p-baixo">
+              <span class="emoji">🟢</span>
+              Baixa<br>Sem urgência
+            </label>
+          </div>
+        </div>
 
         <button type="submit" class="btn" id="btn-enviar">Abrir chamado</button>
 
