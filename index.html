@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farmaderm - Abertura de Chamado</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <div class="topbar">
+    <h1>🛠️ Farmaderm Help Desk</h1>
+    <a href="admin/login.html">Área da TI</a>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <h2>Abrir novo chamado</h2>
+      <p style="color: var(--cor-texto-suave); font-size: 0.9rem; margin-top: -8px;">
+        Preencha os dados abaixo para registrar sua solicitação junto à equipe de TI.
+      </p>
+
+      <form id="form-chamado">
+        <label for="nome">Seu nome</label>
+        <input type="text" id="nome" required placeholder="Ex: Maria Silva">
+
+        <label for="setor">Setor</label>
+        <input type="text" id="setor" required placeholder="Ex: Produção, Financeiro, Comercial...">
+
+        <label for="descricao">Descreva o problema</label>
+        <textarea id="descricao" required placeholder="Explique com detalhes o que está acontecendo..."></textarea>
+
+        <label for="prioridade">Nível de urgência</label>
+        <select id="prioridade" required>
+          <option value="critico">🔴 Crítico / Máquina parada</option>
+          <option value="normal" selected>🟡 Normal</option>
+          <option value="baixo">🟢 Baixa / Verificar posteriormente</option>
+        </select>
+
+        <button type="submit" class="btn" id="btn-enviar">Abrir chamado</button>
+
+        <div id="mensagem" class="msg"></div>
+      </form>
+    </div>
+
+    <p class="rodape-nota">Farmaderm &copy; Sistema interno de suporte técnico</p>
+  </div>
+
+  <!-- Biblioteca oficial do Supabase via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/supabase-client.js"></script>
+  <script src="assets/js/novo-chamado.js"></script>
+
+</body>
+</html>

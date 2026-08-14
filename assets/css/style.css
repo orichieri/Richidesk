@@ -1,0 +1,217 @@
+/* ============================================================
+   Farmaderm Help Desk - Estilos Globais
+   ============================================================ */
+
+:root {
+  --cor-primaria: #0e6e5a;
+  --cor-primaria-escura: #0a5346;
+  --cor-fundo: #f4f6f7;
+  --cor-card: #ffffff;
+  --cor-texto: #1f2a2e;
+  --cor-texto-suave: #5c6b6f;
+  --cor-borda: #dfe6e5;
+
+  --cor-critico: #d64545;
+  --cor-normal: #d99a1f;
+  --cor-baixo: #3a8f4a;
+
+  --radius: 10px;
+  --sombra: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+}
+
+.topbar {
+  background: var(--cor-primaria);
+  color: #fff;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topbar h1 {
+  font-size: 1.15rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.topbar a, .topbar button {
+  color: #fff;
+  background: rgba(255,255,255,0.15);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.topbar a:hover, .topbar button:hover {
+  background: rgba(255,255,255,0.28);
+}
+
+.container {
+  max-width: 640px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+.container.wide {
+  max-width: 1100px;
+}
+
+.card {
+  background: var(--cor-card);
+  border-radius: var(--radius);
+  box-shadow: var(--sombra);
+  padding: 28px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 1.3rem;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.88rem;
+  margin: 16px 0 6px;
+}
+
+input[type="text"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: #fff;
+}
+
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.btn {
+  margin-top: 22px;
+  width: 100%;
+  padding: 12px;
+  background: var(--cor-primaria);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn:hover { background: var(--cor-primaria-escura); }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.btn-secundario {
+  background: #fff;
+  color: var(--cor-primaria);
+  border: 1px solid var(--cor-primaria);
+}
+
+.msg {
+  padding: 12px 14px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  margin-top: 16px;
+  display: none;
+}
+
+.msg.sucesso {
+  background: #e4f5e9;
+  color: #1c6b34;
+  display: block;
+}
+
+.msg.erro {
+  background: #fbe6e6;
+  color: #a52a2a;
+  display: block;
+}
+
+/* Badges de prioridade e status */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.badge-critico { background: var(--cor-critico); }
+.badge-normal  { background: var(--cor-normal); }
+.badge-baixo   { background: var(--cor-baixo); }
+
+.badge-status {
+  background: var(--cor-borda);
+  color: var(--cor-texto);
+}
+
+/* Tabela do painel admin */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--cor-borda);
+  vertical-align: top;
+}
+
+th {
+  background: #f0f3f2;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--cor-texto-suave);
+}
+
+.filtros {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.filtros select {
+  width: auto;
+  min-width: 160px;
+}
+
+.protocolo {
+  font-weight: 700;
+  color: var(--cor-primaria);
+}
+
+.login-box {
+  max-width: 380px;
+  margin: 80px auto;
+}
+
+.rodape-nota {
+  text-align: center;
+  color: var(--cor-texto-suave);
+  font-size: 0.8rem;
+  margin-top: 30px;
+}
