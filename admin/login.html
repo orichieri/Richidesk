@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farmaderm - Login TI</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="topbar-brand">
+      <div class="logo-icone">🛠️</div>
+      <div>
+        <h1>Farmaderm Help Desk</h1>
+        <div class="subtitulo">Área restrita - Equipe de TI</div>
+      </div>
+    </div>
+    <a href="../index.html">← Voltar</a>
+  </div>
+
+  <div class="container">
+    <div class="card login-box">
+      <div class="card-header">
+        <div class="icone-grande">🔒</div>
+        <h2>Entrar</h2>
+      </div>
+      <p class="subtexto">Acesso restrito à equipe de suporte técnico.</p>
+
+      <form id="form-login">
+        <label for="email">E-mail</label>
+        <input type="text" id="email" required placeholder="seu.email@farmaderm.com.br">
+
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" required placeholder="••••••••">
+
+        <button type="submit" class="btn" id="btn-login">Entrar</button>
+
+        <div id="mensagem" class="msg"></div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../assets/js/supabase-client.js"></script>
+  <script src="../assets/js/auth.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farmaderm - Painel de Chamados</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="topbar-brand">
+      <div class="logo-icone">🛠️</div>
+      <div>
+        <h1>Farmaderm Help Desk</h1>
+        <div class="subtitulo">Painel de gestão - Equipe de TI</div>
+      </div>
+    </div>
+    <button onclick="sair()">Sair</button>
+  </div>
+
+  <div class="container wide">
+    <div class="card">
+      <div class="card-header">
+        <div class="icone-grande">📋</div>
+        <h2>Chamados</h2>
+      </div>
+      <p class="subtexto">Acompanhe, filtre e atualize o status dos chamados abertos pelos setores.</p>
+
+      <div class="filtros">
+        <select id="filtro-status">
+          <option value="">Todos os status</option>
+          <option value="aberto">Aberto</option>
+          <option value="em_andamento">Em andamento</option>
+          <option value="resolvido">Resolvido</option>
+          <option value="fechado">Fechado</option>
+        </select>
+
+        <select id="filtro-prioridade">
+          <option value="">Todas as prioridades</option>
+          <option value="critico">🔴 Crítico</option>
+          <option value="normal">🟡 Normal</option>
+          <option value="baixo">🟢 Baixo</option>
+        </select>
+
+        <span class="contador" id="contador">Carregando...</span>
+      </div>
+
+      <div id="area-tabela">
+        <div class="tabela-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Solicitante</th>
+                <th>Setor</th>
+                <th>Descrição</th>
+                <th>Prioridade</th>
+                <th>Aberto em</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-corpo">
+              <!-- linhas inseridas via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../assets/js/supabase-client.js"></script>
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/painel.js"></script>
+
+</body>
+</html>
