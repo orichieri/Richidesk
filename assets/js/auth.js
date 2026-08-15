@@ -46,6 +46,18 @@ async function exigirLogin() {
   return data.session;
 }
 
+// Fica de olho na sessão durante todo o tempo que a página estiver aberta.
+// Se o token expirar ou a pessoa deslogar em outra aba, redireciona sozinho
+// em vez de deixar o painel "travado" com erros silenciosos.
+supabaseClient.auth.onAuthStateChange((evento) => {
+  if (evento === "SIGNED_OUT" || evento === "TOKEN_REFRESH_FAILED") {
+    // Evita redirecionar durante o carregamento inicial da própria página de login
+    if (!window.location.pathname.endsWith("login.html")) {
+      window.location.href = "login.html";
+    }
+  }
+});
+
 async function sair() {
   await supabaseClient.auth.signOut();
   window.location.href = "login.html";

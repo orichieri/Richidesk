@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RichiDesk - Abertura de Chamado</title>
+<title>Farmaderm - Abertura de Chamado</title>
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
     <div class="topbar-brand">
       <div class="logo-icone">🛠️</div>
       <div>
-        <h1>RichiDesk Help Desk</h1>
+        <h1>Farmaderm Help Desk</h1>
         <div class="subtitulo">Suporte técnico interno</div>
       </div>
     </div>
@@ -32,13 +32,13 @@
 
       <form id="form-chamado">
         <label for="nome">Seu nome</label>
-        <input type="text" id="nome" required placeholder="Ex: Maria Silva">
+        <input type="text" id="nome" required maxlength="100" placeholder="Ex: Maria Silva">
 
         <label for="setor">Setor</label>
-        <input type="text" id="setor" required placeholder="Ex: Produção, Financeiro, Comercial...">
+        <input type="text" id="setor" required maxlength="60" placeholder="Ex: Produção, Financeiro, Comercial...">
 
         <label for="descricao">Descreva o problema</label>
-        <textarea id="descricao" required placeholder="Explique com detalhes o que está acontecendo..."></textarea>
+        <textarea id="descricao" required maxlength="2000" placeholder="Explique com detalhes o que está acontecendo..."></textarea>
 
         <label>Nível de urgência</label>
         <div class="prioridade-opcoes">
@@ -71,7 +71,7 @@
       </form>
     </div>
 
-    <p class="rodape-nota">RichiDesk &copy; Sistema interno de suporte técnico</p>
+    <p class="rodape-nota">Farmaderm &copy; Sistema interno de suporte técnico</p>
   </div>
 
   <!-- Biblioteca oficial do Supabase via CDN -->

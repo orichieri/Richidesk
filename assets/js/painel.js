@@ -99,12 +99,12 @@ async function carregarChamados() {
     const prio = LABELS_PRIORIDADE[chamado.prioridade];
     return `
       <tr class="linha-chamado" data-id="${chamado.id}">
-        <td class="protocolo">#${chamado.numero_protocolo}</td>
-        <td>${escapeHtml(chamado.nome_solicitante)}</td>
-        <td>${escapeHtml(chamado.setor)}</td>
-        <td style="max-width: 280px;">${escapeHtml(chamado.descricao)}</td>
-        <td><span class="badge ${prio.classe}">${prio.texto}</span></td>
-        <td>${formatarData(chamado.created_at)}</td>
+        <td class="protocolo" data-label="Protocolo">#${chamado.numero_protocolo}</td>
+        <td data-label="Solicitante">${escapeHtml(chamado.nome_solicitante)}</td>
+        <td data-label="Setor">${escapeHtml(chamado.setor)}</td>
+        <td data-label="Descrição" style="max-width: 280px;">${escapeHtml(chamado.descricao)}</td>
+        <td data-label="Prioridade"><span class="badge ${prio.classe}">${prio.texto}</span></td>
+        <td data-label="Aberto em">${formatarData(chamado.created_at)}</td>
         <td><button class="btn-secundario btn-abrir-detalhe" data-id="${chamado.id}">Ver detalhes</button></td>
       </tr>
     `;
@@ -193,6 +193,17 @@ async function carregarTimeline(chamadoId) {
 
 document.getElementById("modal-select-status").addEventListener("change", async (evento) => {
   const novoStatus = evento.target.value;
+
+  // Fechar é uma ação que "arquiva" o chamado — pede confirmação para
+  // evitar que um clique errado no dropdown feche por engano.
+  if (novoStatus === "fechado") {
+    const confirmou = confirm("Tem certeza que deseja marcar este chamado como Fechado?");
+    if (!confirmou) {
+      // Reverte visualmente o select para o status anterior
+      await abrirModal(chamadoAtualId);
+      return;
+    }
+  }
 
   const { error } = await supabaseClient
     .from("chamados")

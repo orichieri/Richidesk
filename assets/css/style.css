@@ -415,6 +415,64 @@ th {
 }
 
 /* ============================================================
+   Responsividade do Painel Admin em mobile
+   ============================================================ */
+@media (max-width: 720px) {
+  .container.wide { padding: 0 10px; margin: 20px auto; }
+  .card { padding: 16px; }
+
+  .topbar { padding: 14px 16px; }
+  .topbar h1 { font-size: 0.95rem; }
+  .topbar .subtitulo { font-size: 0.68rem; }
+
+  .abas-status { gap: 2px; }
+  .aba-status { padding: 8px 10px; font-size: 0.78rem; }
+
+  .filtros { flex-direction: column; align-items: stretch; }
+  .filtros select { width: 100%; }
+  .filtros .contador { margin-left: 0; }
+
+  /* A tabela tradicional não cabe em tela pequena: transforma cada
+     linha em um "cartão" empilhado, com o rótulo da coluna ao lado do valor */
+  .tabela-wrap { border: none; }
+  table, thead, tbody, th, td, tr { display: block; }
+  thead { display: none; }
+
+  tbody tr {
+    background: #fff;
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--radius-sm);
+    margin-bottom: 12px;
+    padding: 10px 14px;
+  }
+
+  tbody td {
+    border: none;
+    padding: 6px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 0.85rem;
+  }
+
+  tbody td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: var(--cor-texto-suave);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+
+  tbody td:last-child { justify-content: flex-end; }
+  tbody td .btn-secundario { width: 100%; }
+
+  .modal-overlay { padding: 0; align-items: stretch; }
+  .modal { max-width: 100%; height: 100%; border-radius: 0; display: flex; flex-direction: column; }
+  .modal-corpo { max-height: none; flex: 1; }
+}
+
+/* ============================================================
    Abas de status
    ============================================================ */
 .abas-status {

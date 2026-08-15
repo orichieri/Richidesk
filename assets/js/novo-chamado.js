@@ -14,6 +14,23 @@ form.addEventListener("submit", async (evento) => {
   const descricao = document.getElementById("descricao").value.trim();
   const prioridade = document.querySelector('input[name="prioridade"]:checked').value;
 
+  // Validações básicas antes de gastar uma chamada de rede
+  if (nome.length < 2 || nome.length > 100) {
+    mensagemEl.className = "msg erro";
+    mensagemEl.textContent = "Informe um nome válido (entre 2 e 100 caracteres).";
+    return;
+  }
+  if (setor.length < 2 || setor.length > 60) {
+    mensagemEl.className = "msg erro";
+    mensagemEl.textContent = "Informe um setor válido (entre 2 e 60 caracteres).";
+    return;
+  }
+  if (descricao.length < 5 || descricao.length > 2000) {
+    mensagemEl.className = "msg erro";
+    mensagemEl.textContent = "Descreva o problema com pelo menos 5 caracteres (máximo 2000).";
+    return;
+  }
+
   btnEnviar.disabled = true;
   btnEnviar.textContent = "Enviando...";
   mensagemEl.className = "msg";
@@ -32,7 +49,11 @@ form.addEventListener("submit", async (evento) => {
   if (error) {
     console.error(error);
     mensagemEl.className = "msg erro";
-    mensagemEl.textContent = "Não foi possível abrir o chamado. Tente novamente ou contate a TI diretamente.";
+    // Exibe a mensagem específica vinda da validação do banco (ex: rate limit),
+    // com uma mensagem genérica de fallback para erros inesperados de rede/conexão.
+    mensagemEl.textContent = error.message && error.message.length < 200
+      ? error.message
+      : "Não foi possível abrir o chamado. Tente novamente ou contate a TI diretamente.";
     return;
   }
 
