@@ -1,6 +1,6 @@
 # Richidesk - Sistema de Help Desk para uso interno em IIS.
 
-Sistema interno de abertura e gestão de chamados de suporte técnico da Farmaderm.
+Sistema interno de abertura e gestão de chamados de suporte técnico até 50 usuários.
 
 - **Frontend:** HTML + CSS + JavaScript puro (sem build, sem framework) — publicado como site estático no IIS.
 - **Backend:** [Supabase](https://supabase.com) (Postgres + API automática + Auth + Edge Functions).
