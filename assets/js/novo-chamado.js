@@ -37,6 +37,6 @@ form.addEventListener("submit", async (evento) => {
   }
 
   mensagemEl.className = "msg sucesso";
-  mensagemEl.textContent = `Chamado #${numeroProtocolo} aberto com sucesso! Anote esse número para acompanhamento.`;
+  mensagemEl.textContent = `Chamado #${numeroProtocolo} aberto com sucesso! Anote esse número — você pode consultar o status a qualquer momento na página "Consultar chamado".`;
   form.reset();
 });

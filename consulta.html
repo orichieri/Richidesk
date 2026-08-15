@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RichiDesk - Consultar Chamado</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="topbar-brand">
+      <div class="logo-icone">🛠️</div>
+      <div>
+        <h1>RichiDesk Help Desk</h1>
+        <div class="subtitulo">Consultar status do chamado</div>
+      </div>
+    </div>
+    <a href="index.html">← Abrir novo chamado</a>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <div class="icone-grande">🔍</div>
+        <h2>Consultar chamado</h2>
+      </div>
+      <p class="subtexto">
+        Digite o número do protocolo que você recebeu ao abrir o chamado.
+      </p>
+
+      <form id="form-consulta">
+        <label for="numero-protocolo">Número do protocolo</label>
+        <input type="text" id="numero-protocolo" required placeholder="Ex: 5" inputmode="numeric">
+
+        <button type="submit" class="btn" id="btn-consultar">Consultar</button>
+
+        <div id="mensagem" class="msg"></div>
+      </form>
+
+      <div id="resultado-consulta"></div>
+    </div>
+
+    <p class="rodape-nota">RichiDesk &copy; Sistema interno de suporte técnico</p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/supabase-client.js"></script>
+  <script src="assets/js/consulta.js"></script>
+
+</body>
+</html>
