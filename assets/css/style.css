@@ -413,3 +413,161 @@ th {
   .container { margin: 24px auto; }
   .card { padding: 22px; }
 }
+
+/* ============================================================
+   Abas de status
+   ============================================================ */
+.abas-status {
+  display: flex;
+  gap: 6px;
+  border-bottom: 2px solid var(--cor-borda);
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.aba-status {
+  background: none;
+  border: none;
+  padding: 10px 16px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--cor-texto-suave);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.15s ease;
+}
+
+.aba-status:hover { color: var(--cor-texto); }
+
+.aba-status.ativa {
+  color: var(--cor-primaria);
+  border-bottom-color: var(--cor-primaria);
+}
+
+.aba-contador {
+  background: #eef2f2;
+  color: var(--cor-texto-suave);
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.aba-status.ativa .aba-contador {
+  background: #e0f5ee;
+  color: var(--cor-primaria-escura);
+}
+
+/* ============================================================
+   Modal de detalhes do chamado
+   ============================================================ */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 30, 27, 0.45);
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 16px;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.modal-overlay.aberto { display: flex; }
+
+.modal {
+  background: #fff;
+  border-radius: var(--radius);
+  max-width: 560px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  animation: entrar 0.2s ease;
+}
+
+.modal-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.modal-topo .protocolo { font-size: 1.1rem; margin-right: 10px; }
+
+.modal-fechar {
+  background: #f2f6f5;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: var(--cor-texto-suave);
+}
+
+.modal-fechar:hover { background: var(--cor-borda); }
+
+.modal-corpo {
+  padding: 24px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.modal-info { margin-bottom: 4px; }
+
+.modal-descricao {
+  color: var(--cor-texto-suave);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  background: #fbfcfc;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  margin-top: 8px;
+}
+
+#modal-btn-salvar-nota { margin-top: 12px; }
+
+/* Timeline de histórico */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 220px;
+  overflow-y: auto;
+  padding: 4px 2px;
+}
+
+.timeline-vazio {
+  color: var(--cor-texto-suave);
+  font-size: 0.85rem;
+  padding: 10px 0;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  background: #fbfcfc;
+  border: 1px solid var(--cor-borda);
+}
+
+.timeline-item.timeline-status { background: #f3f8ff; border-color: #dbe8fb; }
+
+.timeline-icone { font-size: 1rem; flex-shrink: 0; }
+
+.timeline-texto {
+  font-size: 0.87rem;
+  line-height: 1.5;
+}
+
+.timeline-meta {
+  font-size: 0.72rem;
+  color: var(--cor-texto-suave);
+  margin-top: 3px;
+}

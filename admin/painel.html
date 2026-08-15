@@ -27,15 +27,14 @@
       </div>
       <p class="subtexto">Acompanhe, filtre e atualize o status dos chamados abertos pelos setores.</p>
 
-      <div class="filtros">
-        <select id="filtro-status">
-          <option value="">Todos os status</option>
-          <option value="aberto">Aberto</option>
-          <option value="em_andamento">Em andamento</option>
-          <option value="resolvido">Resolvido</option>
-          <option value="fechado">Fechado</option>
-        </select>
+      <div class="abas-status" id="abas-status">
+        <button class="aba-status ativa" data-status="aberto">🟡 Abertos <span class="aba-contador" id="contador-aberto">0</span></button>
+        <button class="aba-status" data-status="em_andamento">🔵 Em andamento <span class="aba-contador" id="contador-em_andamento">0</span></button>
+        <button class="aba-status" data-status="resolvido">🟢 Resolvidos <span class="aba-contador" id="contador-resolvido">0</span></button>
+        <button class="aba-status" data-status="fechado">⚪ Fechados <span class="aba-contador" id="contador-fechado">0</span></button>
+      </div>
 
+      <div class="filtros">
         <select id="filtro-prioridade">
           <option value="">Todas as prioridades</option>
           <option value="critico">🔴 Crítico</option>
@@ -57,7 +56,7 @@
                 <th>Descrição</th>
                 <th>Prioridade</th>
                 <th>Aberto em</th>
-                <th>Status</th>
+                <th></th>
               </tr>
             </thead>
             <tbody id="tabela-corpo">
@@ -67,6 +66,41 @@
         </div>
       </div>
 
+    </div>
+  </div>
+
+  <!-- ============ MODAL DE DETALHES DO CHAMADO ============ -->
+  <div id="modal-overlay" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-topo">
+        <div>
+          <span class="protocolo" id="modal-protocolo">#0</span>
+          <span class="badge" id="modal-badge-prioridade"></span>
+        </div>
+        <button class="modal-fechar" onclick="fecharModal()">✕</button>
+      </div>
+
+      <div class="modal-corpo">
+        <div class="modal-info">
+          <div><strong id="modal-nome"></strong> · <span id="modal-setor"></span></div>
+          <p id="modal-descricao" class="modal-descricao"></p>
+        </div>
+
+        <label for="modal-select-status">Status do chamado</label>
+        <select id="modal-select-status">
+          <option value="aberto">Aberto</option>
+          <option value="em_andamento">Em andamento</option>
+          <option value="resolvido">Resolvido</option>
+          <option value="fechado">Fechado</option>
+        </select>
+
+        <label>Histórico e anotações internas</label>
+        <div id="modal-timeline" class="timeline"></div>
+
+        <label for="modal-nova-nota">Adicionar anotação (visível só para a TI)</label>
+        <textarea id="modal-nova-nota" placeholder="Ex: Verifiquei o cabo de rede, aguardando peça de reposição..."></textarea>
+        <button class="btn" id="modal-btn-salvar-nota">Registrar anotação</button>
+      </div>
     </div>
   </div>
 
