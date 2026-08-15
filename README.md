@@ -1,4 +1,4 @@
-# Farmaderm Help Desk
+# Richidesk - Sistema de Help Desk para uso interno em IIS.
 
 Sistema interno de abertura e gestão de chamados de suporte técnico da Farmaderm.
 
@@ -45,7 +45,7 @@ Todo evento de novo chamado dispara automaticamente um e-mail de notificação a
 ## Estrutura de pastas
 
 ```
-farmaderm-helpdesk/
+richidesk-helpdesk/
 ├── index.html                     # Formulário público de abertura de chamado
 ├── consulta.html                  # Consulta pública de status por número de protocolo
 │
